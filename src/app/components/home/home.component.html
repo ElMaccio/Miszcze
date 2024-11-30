@@ -1,0 +1,9 @@
+<app-header/>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let p of projects" class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <app-card [title]="p.name" [buttonText]="'Go somewhere'">{{p.description}}</app-card>
+    </div>
+  </div>
+</div>
+<app-footer/>
