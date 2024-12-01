@@ -24,7 +24,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 ## Deploying the app
 
-Run `ng deploy --base-href=https://portfolio.miszcze.pl -cname=https://portfolio.miszcze.pl` to deploy the app to github pages
+If it's the first deploy run `ng add angular-cli-ghpages` and then continue with the rest
+
+Run `ng deploy --base-href=https://portfolio.miszcze.pl --cname=https://portfolio.miszcze.pl` to deploy the app to github pages
 
 ## Further help
 
