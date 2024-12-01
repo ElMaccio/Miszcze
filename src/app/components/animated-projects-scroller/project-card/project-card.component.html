@@ -13,12 +13,12 @@
            [title]="project.Name">
     </div>
     <div class="col-md-7 d-flex flex-column">
-        <h2>{{ project.Name }}</h2>
+        <h2 class="mt-2">{{ project.Name }}</h2>
         <div class="mb-2 flex-grow-1">
           <p>{{ project.Description }}</p>
           <i class="text-muted">Project status: {{ project.Status }}</i>
         </div>
-        <button class="btn btn-lg w-auto me-auto mb-2 btn-custom" [routerLink]="project.Name">Learn more</button>
+        <button class="btn btn-lg w-auto me-auto mb-2 btn-custom" [routerLink]="'projects/' + project.Name">Learn more</button>
     </div>
   </div>
 </div>

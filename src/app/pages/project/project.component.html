@@ -1,0 +1,21 @@
+<div class="container mt-4">
+    <h3 *ngIf="error;else projectContent" class="text-danger">{{ error }}</h3>
+    <ng-template #projectContent>
+        <div class="card">
+            <img *ngIf="photoUrl" [src]="photoUrl" class="card-img-top" alt="Project Photo">
+                <div class="card-body">
+                    <h2 class="card-title">{{ title }}</h2>
+                    <p class="card-subtitle mb-2 text-muted">Authors: {{ authors.join(', ') }}</p>
+                    
+                    <p class="card-text">{{ description }}</p>
+
+                    <div *ngIf="githubUrl" class="mb-2">
+                        <a [href]="githubUrl" target="_blank" class="btn btn-custom">
+                            <i class="bi bi-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+        </div>
+    </ng-template>
+  </div>
+  
