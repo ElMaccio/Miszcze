@@ -1,8 +1,36 @@
-<!--<div class="container">-->
-<!--  <div class="row">-->
-<!--    <div *ngFor="let p of projects" class="col-sm-6 col-md-4 col-lg-3 mb-4">-->
-<!--      <app-card [title]="p.name" [buttonText]="'Go somewhere'">{{p.description}}</app-card>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+<app-hero id="hero"/>
+<section class="container py-5">
+    <h2 class="text-center mb-4">About Us</h2>
+    <p class="text-center mb-5">We are two high school students passionate about learning and building with code. We specialize in full-stack web development and explore other programming areas as well.</p>
+
+    <div class="row">
+        <!-- Profile 1 -->
+        <app-profile-card class="col-md-6 mb-4" [name]="'Name 2'">   
+            <p>Specializing in: Back-end development, database management, and building scalable applications.</p>
+            <p>Favorite Technologies: Node.js, Express, Python, SQL</p>
+        </app-profile-card>
+        <!-- Profile 2 -->
+        <app-profile-card class="col-md-6 mb-4" [name]="'Name 2'">        
+            <p>Specializing in: Back-end development, database management, and building scalable applications.</p>
+            <p>Favorite Technologies: Node.js, Express, Python, SQL</p>
+        </app-profile-card>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="skills mt-5">
+        <h4>Our Skills & Technologies</h4>
+        <ul class="list-unstyled d-flex flex-wrap">
+            <li *ngFor="let skill of skills" class="badge m-1" [ngStyle]="{'background-color': skill.bgColor}">{{ skill.name }}</li>
+        </ul>
+    </div>
+</section>
+
+<div class="divider container-fluid my-5">
+</div>
+
+<div class="mb-4 py-2" id="projects">
+    <h2 class="text-center">Our Projects</h2>
+    <p class="text-center text-muted mb-2">Explore some of the projects we've built to showcase our skills and passion for coding.</p>
+</div>
+
 <app-animated-projects-scroller></app-animated-projects-scroller>

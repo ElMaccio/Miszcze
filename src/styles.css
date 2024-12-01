@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+.btn-custom {
+    background-color: #7f534b;
+    color: #f5edf0;
+    border: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-custom:hover {
+    background-color: #f5edf0;
+    color: #7f534b;
+    border: 1px solid #7f534b;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+*, html {
+
+    scroll-behavior: smooth !important;
+}

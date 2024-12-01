@@ -1,0 +1,16 @@
+.projects-header h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333; /* Dark color for the header */
+}
+
+.projects-header p {
+    font-size: 1.1rem;
+    color: #6c757d; /* Muted color for the description */
+    margin-top: 0.5rem;
+}
+
+.divider {
+    height: 4px;
+    background: linear-gradient(to right, #ffffff, #748b75, #ffffff);
+}

@@ -1,0 +1,6 @@
+.hero-section {
+    background: linear-gradient(#748b75 25%, white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

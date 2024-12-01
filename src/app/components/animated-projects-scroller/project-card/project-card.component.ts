@@ -24,10 +24,10 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
         opacity: 0.8,
       })),
       transition('* => closed', [
-        animate('1s')
+        animate('0.5s')
       ]),
       transition('* => open', [
-        animate('0.5s')
+        animate('0.25s')
       ]),
     ])
   ]
