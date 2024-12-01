@@ -1,15 +1,24 @@
-<div class="container pb-2 pt-3 rounded">
+<div class="container pb-2 pt-3 rounded"
+     [@openClose]="isHover ? 'open' : 'closed'"
+     (mouseover)="toggleBoxHover(true)"
+     (mouseout)="toggleBoxHover(false)">
   <div class="row">
     <div class="col-md-5">
-      <img class="img-fluid rounded-1" [ngSrc]="project.Image" [alt]="project.Name" width="400" height="200" priority [title]="project.Name">
+      <img class="img-fluid rounded-1"
+           [ngSrc]="project.Image"
+           [alt]="project.Name"
+           width="400"
+           height="200"
+           priority
+           [title]="project.Name">
     </div>
     <div class="col-md-7 d-flex flex-column">
         <h2>{{ project.Name }}</h2>
         <div class="mb-2 flex-grow-1">
-          <ng-content></ng-content>
-          <i class="text-muted">{{ project.Status }}</i>
+          <p>{{ project.Description }}</p>
+          <i class="text-muted">Project status: {{ project.Status }}</i>
         </div>
-        <button class="btn btn-lg w-auto me-auto mb-2" style="background-color: #7f534b; color: #f5edf0;" [routerLink]="project.Name">{{ project.Description }}</button>
+        <button class="btn btn-lg w-auto me-auto mb-2 btn-custom" [routerLink]="project.Name">Learn more</button>
     </div>
   </div>
 </div>
