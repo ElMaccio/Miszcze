@@ -3,11 +3,12 @@ import { CardComponent } from "../card/card.component";
 import { NgFor } from '@angular/common';
 import {HeaderComponent} from '../header/header.component';
 import {FooterComponent} from '../footer/footer.component';
+import {AnimatedProjectsScrollerComponent} from '../animated-projects-scroller/animated-projects-scroller.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CardComponent, NgFor, HeaderComponent, FooterComponent],
+  imports: [CardComponent, NgFor, HeaderComponent, FooterComponent, AnimatedProjectsScrollerComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

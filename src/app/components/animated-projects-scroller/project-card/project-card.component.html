@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <img class="img-fluid" [ngSrc]="project.Image" [alt]="project.Name" width="400" height="200" priority [title]="project.Name">
+    </div>
+    <div class="col-md-7">
+      <h2>{{ project.Name }}</h2>
+      <div>
+        <ng-content></ng-content>
+        <p>{{ project.Status }}</p>
+      </div>
+      <button class="btn btn-primary" [routerLink]="project.Name">Details</button>
+    </div>
+  </div>
+</div>
