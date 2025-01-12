@@ -3,6 +3,7 @@ import {HeaderComponent} from './components/header/header.component';
 import {RouterOutlet} from '@angular/router';
 import {ProjectCardComponent} from './components/project-card/project-card.component';
 import {NgForOf} from '@angular/common';
+import {HorizontalScrollComponent} from './components/horizontal-scroll/horizontal-scroll.component';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ import {NgForOf} from '@angular/common';
     HeaderComponent,
     RouterOutlet,
     ProjectCardComponent,
-    NgForOf
+    NgForOf,
+    HorizontalScrollComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

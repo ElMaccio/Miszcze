@@ -12,8 +12,12 @@
       </div>
     </div>
   </div>
-  <div class="justify-center">
-    <app-project-card *ngFor="let project of projects" [project]="project"></app-project-card>
-  </div>
+  <app-horizontal-scroll>
+    <app-project-card
+      class="shrink-0 first:pl-8 last:pr-8"
+      *ngFor="let project of projects"
+      [project]="project">
+    </app-project-card>
+  </app-horizontal-scroll>
   <router-outlet></router-outlet>
 </div>

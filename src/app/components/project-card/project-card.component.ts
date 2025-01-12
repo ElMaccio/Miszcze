@@ -1,9 +1,12 @@
 import {AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-project-card',
-  imports: [],
+  imports: [
+    NgOptimizedImage,
+  ],
   templateUrl: './project-card.component.html',
   styleUrl: './project-card.component.css',
   animations: [
@@ -32,7 +35,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 export class ProjectCardComponent implements AfterViewInit{
   @Input() project!: {name: string, description: string};
   @ViewChild('projectCard') projectCard!: ElementRef;
-  state = 'hidden';
+  state = 'visible';
 
   ngAfterViewInit() {
     // It will show the card if it is already in the viewport
@@ -40,14 +43,19 @@ export class ProjectCardComponent implements AfterViewInit{
     // this.onWindowScroll();
   }
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const element = this.projectCard.nativeElement;
-    if (element) {
-      const rect = element.getBoundingClientRect();
-      if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-        this.state = 'visible';
-      }
-    }
-  }
+  // Disable animations on enter for testing purposes
+  // @HostListener('window:scroll', ['$event'])
+  // onWindowScroll(): void {
+  //   this.updateElements()
+  // }
+  //
+  // updateElements() {
+  //   const element = this.projectCard.nativeElement;
+  //   if (element) {
+  //     const rect = element.getBoundingClientRect();
+  //     if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+  //       this.state = 'visible';
+  //     }
+  //   }
+  // }
 }
