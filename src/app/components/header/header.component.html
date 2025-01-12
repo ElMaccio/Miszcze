@@ -13,8 +13,9 @@
         </a>
       </div>
       <div class="flex flex-row pl-2 space-x-2 border-l-2 border-opacity-15 border-white">
-        <i class="fa fa-github text-white fa-2x hover:scale-125 duration-150"></i>
-        <i class="fa fa-instagram text-white fa-2x hover:scale-125 duration-150"></i>
+        <i class="fa fa-github text-white fa-2x hover:scale-125 transition-all"></i>
+        <i class="fa fa-instagram text-white fa-2x hover:scale-125 transition-all"></i>
+        <i id="theme-icon" class="fa fa-moon-o text-white fa-2x hover:scale-125 transition-all" (click)="toggleTheme()"></i> <!-- Example: moon icon for dark mode -->
       </div>
     </div>
   </div>
