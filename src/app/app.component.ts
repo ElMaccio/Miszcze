@@ -1,19 +1,22 @@
 import { Component } from '@angular/core';
 import {HeaderComponent} from './components/header/header.component';
 import {RouterOutlet} from '@angular/router';
-import {ProjectCardComponent} from './components/project-card/project-card.component';
 import {NgForOf} from '@angular/common';
 import {HorizontalScrollComponent} from './components/horizontal-scroll/horizontal-scroll.component';
+import { HeroComponent } from './components/hero/hero.component';
+import {ProjectCardComponent} from './components/project-card/project-card.component';
 
 @Component({
   selector: 'app-root',
   imports: [
     HeaderComponent,
+    HeroComponent,
     RouterOutlet,
-    ProjectCardComponent,
     NgForOf,
-    HorizontalScrollComponent
+    HorizontalScrollComponent,
+    ProjectCardComponent
   ],
+  standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

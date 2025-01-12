@@ -9,6 +9,7 @@ import {NgOptimizedImage} from '@angular/common';
   ],
   templateUrl: './project-card.component.html',
   styleUrl: './project-card.component.css',
+  standalone: true,
   animations: [
     trigger('fadeIn', [
       state('hidden', style({ opacity: 0 })),

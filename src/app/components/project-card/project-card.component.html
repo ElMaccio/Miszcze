@@ -1,13 +1,13 @@
-<div class="container mx-auto my-6 rounded-md shadow-xl border border-white/10" #projectCard>
-  <div class="bg-opacity-10 flex">
+<div class="container mx-auto my-6 backdrop-blur-sm" #projectCard>
+  <div class="bg-neutral-800 bg-opacity-20 rounded-lg flex">
     <img [@fadeIn]="state"
          class="rounded-md m-3"
          ngSrc="https://picsum.photos/400/200"
          width="400" height="200"
          alt="{{project.name}}">
     <div class="m-4">
-      <p [@slideIn]="state" class="text-2xl font-medium">{{ project.name }}</p>
-      <p [@slideIn]="state">{{ project.description }}</p>
+      <p [@slideIn]="state" class="text-2xl font-medium text-white">{{ project.name }}</p>
+      <p [@slideIn]="state" class="text-emerald-100">{{ project.description }}</p>
     </div>
   </div>
 </div>
