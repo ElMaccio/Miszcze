@@ -3,9 +3,9 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-project-card',
-  imports: [],
   templateUrl: './project-card.component.html',
   styleUrl: './project-card.component.css',
+  standalone: true,
   animations: [
     trigger('fadeIn', [
       state('hidden', style({ opacity: 0 })),

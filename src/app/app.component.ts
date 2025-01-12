@@ -3,15 +3,18 @@ import {HeaderComponent} from './components/header/header.component';
 import {RouterOutlet} from '@angular/router';
 import {ProjectCardComponent} from './components/project-card/project-card.component';
 import {NgForOf} from '@angular/common';
+import { HeroComponent } from './components/hero/hero.component';
 
 @Component({
   selector: 'app-root',
   imports: [
     HeaderComponent,
+    HeroComponent,
     RouterOutlet,
     ProjectCardComponent,
     NgForOf
   ],
+  standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

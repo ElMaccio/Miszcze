@@ -1,23 +1,24 @@
-<div class="flex flex-col">
-  <div class="bg-opacity-10 bg-neutral-700 sticky border-b-2 border-opacity-15 border-white flex-row">
-    <div class="flex flex-row justify-evenly h-14 my-5 mx-auto max-w-5xl">
-      <div class="flex-row flex justify-between items-center space-x-2 duration-150 hover:scale-110">
-        <img src="favicon.ico" class="size-8" alt="logo">
-        <div class="text-white text-3xl">Miszcze</div>
+<div class="bg-opacity-10 bg-neutral-700 sticky top-0 z-50 shadow-lg border-b-2 border-opacity-15 border-white flex-row py-2 backdrop-blur-lg">
+  <div class="flex flex-row justify-evenly h-14 mx-auto max-w-5xl">
+    <div class="flex-row flex justify-between items-center space-x-2 duration-150 hover:scale-110">
+      <img src="favicon.ico" class="size-8" alt="logo">
+      <div class="text-white text-3xl">Miszcze</div>
+    </div>
+    <div class="flex flex-row justify-end items-center flex-1">
+      <div class="flex flex-row justify-end pr-2 space-x-6">
+        <a class="text-white text-xl hover:underline duration-150 hover:scale-105 {{option.active ? 'underline' : ''}}"
+           (click)="changeContent(option.name)"
+           *ngFor="let option of options">
+          {{option.name}}
+        </a>
       </div>
-      <div class="flex flex-row justify-end items-center flex-1">
-        <div class="flex flex-row justify-end pr-2 space-x-6">
-          <a class="text-white text-xl hover:underline duration-150 hover:scale-105 {{option.active ? 'underline' : ''}}"
-             (click)="changeContent(option.name)"
-             *ngFor="let option of options">
-            {{option.name}}
-          </a>
-        </div>
-        <div class="flex flex-row pl-2 space-x-2 border-l-2 border-opacity-15 border-white">
-          <div class="text-white text-lg">Github</div>
-          <div class="text-white text-lg">Instagram</div>
-        </div>
+      <div class="flex flex-row pl-2 space-x-2 border-l-2 border-opacity-15 border-white">
+        <i class="fa fa-github text-white fa-2x hover:scale-125 duration-150"></i>
+        <i class="fa fa-instagram text-white fa-2x hover:scale-125 duration-150"></i>
       </div>
     </div>
   </div>
+</div>
+<div class="pt-16">
+  <!-- Your main content -->
 </div>

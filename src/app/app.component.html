@@ -1,17 +1,29 @@
-<div class="flex flex-col min-h-screen bg-gradient-to-tr from-green-500 via-green-500 via-teal-600 to-indigo-700">
+<div class="relative bg-gradient-to-tr from-green-500 via-teal-500 to-indigo-500">
+  <!-- Background SVG with opacity -->
+  <div class="absolute inset-0 bg-[url('/topography.svg')] opacity-20 z-0 [background-size:100%]"></div>
+
   <app-header/>
-  <div class="flex flex-col justify-around items-center">
-    <div class="max-w-5xl w-full rounded-lg bg-neutral-800 bg-opacity-15 p-5 my-5">
-      <div class="text-white text-lg">
-        Welcome
+  <div class="flex flex-col justify-around items-center space-y-6 relative z-10"> <!-- Content above the image with z-10 -->
+    <app-hero/>
+
+    <div class="max-w-5xl w-full rounded-lg bg-neutral-800 bg-opacity-20 p-6 my-6 flex flex-col items-center space-y-4 backdrop-blur-sm">
+      <p class="text-2xl font-semibold text-white">Meet the Team</p>
+      <p class="text-lg text-emerald-100">We’re a team of high school developers who specialize in web applications. While we both have a strong foundation in front-end and back-end development, we each bring our own unique strengths to the table:</p>
+      <div class="flex flex-row justify-around w-full space-x-4">
+        <div class="max-w-sm w-full rounded-lg bg-indigo-800 bg-opacity-30 hover:bg-opacity-40 hover:bg-indigo-800 p-6 flex flex-col items-center space-y-3 shadow-lg hover:scale-105 duration-150">
+          <p class="text-lg font-bold text-white">Name</p>
+          <p class="text-sm text-neutral-200 text-center">
+            <b>Name</b> is passionate about C++ and works primarily on performance-critical applications and systems-level programming. With a love for algorithms and problem-solving, Alex thrives in creating efficient and optimized solutions.
+          </p>
+        </div>
+        <div class="max-w-sm w-full rounded-lg bg-indigo-800 bg-opacity-30 hover:bg-opacity-40 hover:bg-indigo-800 p-6 flex flex-col items-center space-y-3 shadow-lg hover:scale-105 duration-150">
+          <p class="text-lg font-bold text-white">Name</p>
+          <p class="text-sm text-neutral-200 text-center">
+            <b>Name</b> specializes in Python and focuses on building dynamic, scalable web applications, as well as data analysis and automation tools. Jordan is also skilled in using Python for server-side development and machine learning projects.
+          </p>
+        </div>
       </div>
     </div>
-    <div class="max-w-3xl w-full rounded-lg bg-neutral-800 bg-opacity-15 p-5 my-5 flex items-center">
-      <div class="text-white text-lg">
-        Welcome
-      </div>
-    </div>
-  </div>
   <div class="justify-center">
     <app-project-card *ngFor="let project of projects" [project]="project"></app-project-card>
   </div>
