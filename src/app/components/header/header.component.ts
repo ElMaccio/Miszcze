@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component} from '@angular/core';
 import {NgForOf} from '@angular/common';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,25 @@ import {NgForOf} from '@angular/common';
   ],
   standalone: true,
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
+  animations: [
+    trigger('fade', [
+      state('void', style({
+        opacity: 0,
+        transform: 'translateY(-100%)'
+      })),
+      state('visible', style({
+        opacity: 1,
+        transform: 'translateY(0)'
+      })),
+      transition("void => visible", [
+        animate(1500)
+      ])
+    ])
+  ]
 })
-export class HeaderComponent {
+export class HeaderComponent implements AfterViewInit {
+  animationState = 'void';
   options: {name: string, active: boolean}[] = [
     {name: "Portfolio", active: true},
     {name: "Team", active: false},
@@ -34,15 +51,13 @@ export class HeaderComponent {
         this.themeIcon.classList.add('fa-moon-o'); // Light mode icon
       }
     }
+    this.animationState = 'visible';
   }
 
   changeContent(name: string) {
     console.log("Content: " + name);
     this.options.forEach(element => {
-      if(element.name != name)
-        element.active = false;
-      else
-        element.active = true;
+      element.active = element.name == name;
     });
   }
 
