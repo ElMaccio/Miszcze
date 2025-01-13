@@ -44,10 +44,13 @@
   </div>
   <app-horizontal-scroll>
     <app-project-card
-      class="item shrink-0 first:pl-8 last:pr-8"
+      class="shrink-0"
       *ngFor="let project of projects"
       [project]="project">
     </app-project-card>
   </app-horizontal-scroll>
+  <div>
+    Footer
+  </div>
   <router-outlet></router-outlet>
 </div>

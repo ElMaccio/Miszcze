@@ -1,4 +1,8 @@
-import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {gsap} from 'gsap';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-horizontal-scroll',
@@ -6,44 +10,43 @@ import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
   templateUrl: './horizontal-scroll.component.html',
   styleUrl: './horizontal-scroll.component.css'
 })
-export class HorizontalScrollComponent {
-  @ViewChild('scrollContainer') scrollContainer!: ElementRef;
+export class HorizontalScrollComponent implements AfterViewInit {
+  @ViewChild('scroll') scroller!: ElementRef;
+  @ViewChild('container') container!: ElementRef;
+  @ViewChild('content') content!: ElementRef;
 
-  onScroll() {
-    const container = this.scrollContainer.nativeElement;
-    const containerCenter = container.offsetWidth / 2 + container.scrollLeft;
-    const elements = container.querySelectorAll('.item');
+  ngAfterViewInit() {
+    let sections = Array.from(this.content.nativeElement.children);
+    sections.pop();
+    sections.shift();
+    sections = gsap.utils.toArray(sections);
 
-    elements.forEach((element: HTMLElement) => {
-      const elementCenter = element.offsetLeft + element.offsetWidth / 2;
-      const diff = Math.abs(containerCenter - elementCenter);
+    let snaps: number[] = [];
+    sections.forEach((section, i: number) => {
+      snaps.push(i / (sections.length - 1));
+    });
 
-      if (diff < 465) {
-        element.classList.remove('blur');
-      } else {
-        element.classList.add('blur');
+    gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: this.container.nativeElement,
+        scroller: this.scroller.nativeElement,
+        pin: true,
+        start: "center center",
+        scrub: 1,
+        snap: {
+          snapTo: (position: number): number => {
+            return snaps.reduce((prev: number, curr: number): number => {
+              return (Math.abs(curr - position) < Math.abs(prev - position) ? curr : prev);
+            });
+          },
+          duration: 0.3,
+          delay: 0.3,
+          ease: "power1.inOut"
+        },
+        end: "+=5000"
       }
     });
-  }
-
-
-  @HostListener('wheel', ['$event'])
-  onWheel(event: WheelEvent): void {
-    this.onScroll();
-    const container = this.scrollContainer.nativeElement;
-    const maxScrollLeft = container.scrollWidth - container.clientWidth - 1;
-
-    if (event.deltaY < 0){
-      if (container.scrollLeft > 0) {
-        event.preventDefault();
-        container.scrollLeft += event.deltaY;
-      }
-    } else {
-      if (container.scrollLeft < maxScrollLeft) {
-        event.preventDefault();
-        container.scrollLeft += event.deltaY;
-      }
-    }
-
   }
 }
