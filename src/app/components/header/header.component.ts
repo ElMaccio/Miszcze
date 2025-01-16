@@ -1,6 +1,7 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {AfterViewInit, Component, HostListener} from '@angular/core';
 import {NgForOf} from '@angular/common';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {elementAt} from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -28,10 +29,10 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 export class HeaderComponent implements AfterViewInit {
   animationState = 'void';
-  options: {name: string, active: boolean}[] = [
-    {name: "Portfolio", active: true},
-    {name: "Team", active: false},
-    {name: "Projects", active: false}
+  options: { name: string, active: boolean, position: number }[] = [
+    {name: "Portfolio", active: true, position: 60},
+    {name: "Team", active: false, position: 290},
+    {name: "Projects", active: false, position: 680}
   ]
 
   themeIcon: HTMLElement | null = null;
@@ -54,10 +55,22 @@ export class HeaderComponent implements AfterViewInit {
     this.animationState = 'visible';
   }
 
-  changeContent(name: string) {
-    console.log("Content: " + name);
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: Event): void {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    this.options.forEach(element => {
+      if (element.position < scrollTop) {
+        this.changeContent(element.name, false);
+      }
+    });
+  }
+
+  changeContent(name: string, scroll = true) {
     this.options.forEach(element => {
       element.active = element.name == name;
+      if (element.active && scroll) {
+        window.scrollTo({top: element.position, behavior: "smooth"});
+      }
     });
   }
 
