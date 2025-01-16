@@ -16,7 +16,7 @@ export class HorizontalScrollComponent implements AfterViewInit {
   @ViewChild('content') content!: ElementRef;
 
   ngAfterViewInit() {
-    let sections = Array.from(this.content.nativeElement.children);
+    let sections: ElementRef[] = Array.from(this.content.nativeElement.children);
     sections.pop();
     sections.shift();
     sections = gsap.utils.toArray(sections);
@@ -42,7 +42,7 @@ export class HorizontalScrollComponent implements AfterViewInit {
             });
           },
           duration: 0.3,
-          delay: 0.3,
+          delay: 0.1,
           ease: "power1.inOut"
         },
         end: "+=5000"

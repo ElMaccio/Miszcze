@@ -1,10 +1,5 @@
-import {AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild} from '@angular/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import { Component, Input} from '@angular/core';
 import {NgOptimizedImage} from '@angular/common';
-import {gsap} from 'gsap';
-import {ScrollTrigger} from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-project-card',

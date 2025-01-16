@@ -5,6 +5,7 @@ import {NgForOf} from '@angular/common';
 import {HorizontalScrollComponent} from './components/horizontal-scroll/horizontal-scroll.component';
 import { HeroComponent } from './components/hero/hero.component';
 import {ProjectCardComponent} from './components/project-card/project-card.component';
+import {FooterComponent} from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ import {ProjectCardComponent} from './components/project-card/project-card.compo
     RouterOutlet,
     NgForOf,
     HorizontalScrollComponent,
-    ProjectCardComponent
+    ProjectCardComponent,
+    FooterComponent
   ],
   standalone: true,
   templateUrl: './app.component.html',
@@ -32,6 +34,5 @@ export class AppComponent {
     {name: 'Projekt 7', description: 'Longer description of the project 7. Description of the project 7.'},
     {name: 'Projekt 8', description: 'Longer description of the project 8. Description of the project 8.'},
     {name: 'Projekt 9', description: 'Longer description of the project 9. Description of the project 9.'},
-    {name: 'Projekt 10', description: 'Longer description of the project 10. Description of the project 10.'}
   ];
 }
