@@ -1,0 +1,17 @@
+<div class="p-6 w-2/3 mx-auto" #opinionCard>
+  <div class="bg-neutral-800 bg-opacity-20 rounded-md shadow-lg backdrop-blur-sm p-4 relative text-white">
+    <div class="flex">
+      <img src="{{ opinion.logoSrc }}" alt="Name Surname" class="rounded-full size-8">
+      <p class="ml-5 mt-1">{{ opinion.clientName }}</p>
+    </div>
+    <div class="my-5">
+      <p>{{ opinion.opinion }}</p>
+    </div>
+    <div class="absolute bottom-2 right-4">
+      <p>Date: {{ opinion.date }}</p>
+    </div>
+    <div class="absolute top-2 right-4">
+      <p>{{ getStringStars() }}</p>
+    </div>
+  </div>
+</div>

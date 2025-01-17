@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {HeaderComponent} from '../../components/header/header.component';
 import {HeroComponent} from '../../components/hero/hero.component';
 import {HorizontalScrollComponent} from '../../components/horizontal-scroll/horizontal-scroll.component';
 import {NgForOf} from '@angular/common';
 import {ProjectCardComponent} from '../../components/project-card/project-card.component';
 import {FooterComponent} from '../../components/footer/footer.component';
+import {OpinionCardComponent} from '../../components/opinion-card/opinion-card.component';
+import {Opinion} from '../../shared/interfaces/opinion';
 
 @Component({
   selector: 'app-home-page',
@@ -14,13 +16,14 @@ import {FooterComponent} from '../../components/footer/footer.component';
     HorizontalScrollComponent,
     NgForOf,
     ProjectCardComponent,
-    FooterComponent
+    FooterComponent,
+    OpinionCardComponent
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
-  projects: {name: string, description: string}[] = [
+  projects: { name: string, description: string }[] = [
     {name: 'Projekt 1', description: 'Longer description of the project 1. Description of the project 1.'},
     {name: 'Projekt 2', description: 'Longer description of the project 2. Description of the project 2.'},
     {name: 'Projekt 3', description: 'Longer description of the project 3. Description of the project 3.'},
@@ -31,4 +34,42 @@ export class HomePageComponent {
     {name: 'Projekt 8', description: 'Longer description of the project 8. Description of the project 8.'},
     {name: 'Projekt 9', description: 'Longer description of the project 9. Description of the project 9.'},
   ];
+
+  opinions: Opinion[] = [
+    {
+      logoSrc: 'favicon.ico',
+      clientName: 'Client 1',
+      opinion: 'Opinion of the client 1. Opinion of the client 1.',
+      date: '2021-01-01',
+      stars: 5
+    },
+    {
+      logoSrc: 'favicon.ico',
+      clientName: 'Client 2',
+      opinion: 'Opinion of the client 2. Opinion of the client 2.',
+      date: '2021-02-01',
+      stars: 4
+    },
+    {
+      logoSrc: 'favicon.ico',
+      clientName: 'Client 3',
+      opinion: 'Opinion of the client 3. Opinion of the client 3.',
+      date: '2021-03-01',
+      stars: 3
+    },
+    {
+      logoSrc: 'favicon.ico',
+      clientName: 'Client 4',
+      opinion: 'Opinion of the client 4. Opinion of the client 4.',
+      date: '2021-04-01',
+      stars: 2
+    },
+    {
+      logoSrc: 'favicon.ico',
+      clientName: 'Client 5',
+      opinion: 'Opinion of the client 5. Opinion of the client 5.',
+      date: '2021-05-01',
+      stars: 1
+    },
+  ]
 }
