@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {gsap} from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import {windowTime} from 'rxjs';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,8 +18,6 @@ export class HorizontalScrollComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     let sections: ElementRef[] = Array.from(this.content.nativeElement.children);
-    sections.pop();
-    sections.shift();
     sections = gsap.utils.toArray(sections);
 
     let snaps: number[] = [];
@@ -33,14 +32,21 @@ export class HorizontalScrollComponent implements AfterViewInit {
         trigger: this.container.nativeElement,
         scroller: this.scroller.nativeElement,
         pin: true,
-        start: "center center",
+        start: "top top",
         scrub: 1,
         snap: {
           snapTo: (position: number): number => {
             return snaps.reduce((prev: number, curr: number): number => {
-              return (Math.abs(curr - position) < Math.abs(prev - position) ? curr : prev);
+              let test = (Math.abs(curr - position) < Math.abs(prev - position) ? curr : prev);
+
+              console.log(position, prev, curr, test);
+
+              // test += ;
+
+              return test;
             });
           },
+
           duration: 0.3,
           delay: 0.1,
           ease: "power1.inOut"

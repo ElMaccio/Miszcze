@@ -46,35 +46,35 @@ export class HomePageComponent {
 
   opinions: Opinion[] = [
     {
-      logoSrc: 'favicon.ico',
+      logoSrc: '/favicon.ico',
       clientName: 'Client 1',
       opinion: 'Opinion of the client 1. Opinion of the client 1.',
       date: '2021-01-01',
       stars: 5
     },
     {
-      logoSrc: 'favicon.ico',
+      logoSrc: '/favicon.ico',
       clientName: 'Client 2',
       opinion: 'Opinion of the client 2. Opinion of the client 2.',
       date: '2021-02-01',
       stars: 4
     },
     {
-      logoSrc: 'favicon.ico',
+      logoSrc: '/favicon.ico',
       clientName: 'Client 3',
       opinion: 'Opinion of the client 3. Opinion of the client 3.',
       date: '2021-03-01',
       stars: 3
     },
     {
-      logoSrc: 'favicon.ico',
+      logoSrc: '/favicon.ico',
       clientName: 'Client 4',
       opinion: 'Opinion of the client 4. Opinion of the client 4.',
       date: '2021-04-01',
       stars: 2
     },
     {
-      logoSrc: 'favicon.ico',
+      logoSrc: '/favicon.ico',
       clientName: 'Client 5',
       opinion: 'Opinion of the client 5. Opinion of the client 5.',
       date: '2021-05-01',
