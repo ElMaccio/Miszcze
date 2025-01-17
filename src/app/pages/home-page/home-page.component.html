@@ -1,7 +1,7 @@
-<app-header/>
+<app-header [options]="options"/>
 <div class="flex flex-col justify-around items-center space-y-6 relative z-10">
   <!-- Content above the image with z-10 -->
-  <app-hero/>
+  <app-hero id="portfolioSection"/>
 
   <div
     class="max-w-5xl w-full rounded-lg bg-neutral-800 bg-opacity-20 p-6 my-6 flex flex-col items-center space-y-4 backdrop-blur-sm">
@@ -32,7 +32,8 @@
   </div>
 </div>
 
-<div class="max-w-3xl mt-24 mx-auto w-full rounded-lg bg-neutral-800 bg-opacity-20 backdrop-blur-sm p-5 my-5 flex justify-center">
+<div class="max-w-3xl mt-24 mx-auto w-full rounded-lg bg-neutral-800 bg-opacity-20 backdrop-blur-sm p-5 my-5 flex justify-center"
+     id="projectsSection">
   <p class="text-2xl font-semibold text-white">
     Explore our projects
   </p>
@@ -46,7 +47,8 @@
   </app-project-card>
 </app-horizontal-scroll>
 
-<div class="max-w-3xl mx-auto mt-24 w-full rounded-lg bg-neutral-800 bg-opacity-20 backdrop-blur-sm p-5 my-5">
+<div class="max-w-3xl mx-auto mt-24 w-full rounded-lg bg-neutral-800 bg-opacity-20 backdrop-blur-sm p-5 my-5"
+     id="opinionsSection">
   <p class="text-2xl font-semibold text-white">
     Selected opinions
   </p>

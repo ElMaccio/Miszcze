@@ -23,6 +23,15 @@ import {Opinion} from '../../shared/interfaces/opinion';
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
+  // Set id to specific elements to be able to scroll to them
+  // After clicking on the navigation link
+  // id should be like name to lower case plus 'Section' (e.g. portfolioSection)
+  options: { name: string, active: boolean}[] = [
+    {name: "Portfolio", active: true},
+    {name: "Projects", active: false},
+    {name: "Opinions", active: false},
+  ];
+
   projects: { name: string, description: string }[] = [
     {name: 'Projekt 1', description: 'Longer description of the project 1. Description of the project 1.'},
     {name: 'Projekt 2', description: 'Longer description of the project 2. Description of the project 2.'},

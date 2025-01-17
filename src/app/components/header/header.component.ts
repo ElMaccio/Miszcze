@@ -1,7 +1,6 @@
-import {AfterViewInit, Component, HostListener} from '@angular/core';
+import {AfterViewInit, Component, HostListener, Input} from '@angular/core';
 import {NgForOf} from '@angular/common';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {elementAt} from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -28,12 +27,8 @@ import {elementAt} from 'rxjs';
   ]
 })
 export class HeaderComponent implements AfterViewInit {
+  @Input() options!: { name: string, active: boolean, position?: number}[];
   animationState = 'void';
-  options: { name: string, active: boolean, position: number }[] = [
-    {name: "Portfolio", active: true, position: 60},
-    {name: "Team", active: false, position: 290},
-    {name: "Projects", active: false, position: 680}
-  ]
 
   themeIcon: HTMLElement | null = null;
 
@@ -52,25 +47,55 @@ export class HeaderComponent implements AfterViewInit {
         this.themeIcon.classList.add('fa-moon-o'); // Light mode icon
       }
     }
-    this.animationState = 'visible';
-  }
 
-  @HostListener('window:scroll', ['$event'])
-  onScroll(event: Event): void {
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    this.options.forEach(element => {
-      if (element.position < scrollTop) {
-        this.changeContent(element.name, false);
-      }
-    });
+    this.animationState = 'visible';
+    this.observeSections();
   }
 
   changeContent(name: string, scroll = true) {
     this.options.forEach(element => {
       element.active = element.name == name;
       if (element.active && scroll) {
-        window.scrollTo({top: element.position, behavior: "smooth"});
+        const targetElement = document.getElementById(name.toLowerCase() + "Section");
+        if (targetElement) {
+          const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - 100;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
       }
+    });
+  }
+
+  observeSections() {
+    const options = {
+      root: null,
+      rootMargin: '-200px',
+      threshold: 0.5
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          this.updateActiveOption(sectionId);
+        }
+      });
+    }, options);
+
+    this.options.forEach(option => {
+      const section = document.getElementById(option.name.toLowerCase() + "Section");
+      if (section) {
+        observer.observe(section);
+      }
+    });
+  }
+
+  updateActiveOption(sectionId: string) {
+    this.options.forEach(option => {
+      option.active = option.name.toLowerCase() + "Section" === sectionId;
     });
   }
 
