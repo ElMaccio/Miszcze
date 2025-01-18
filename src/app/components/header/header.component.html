@@ -1,22 +1,22 @@
 <div [@fade]="animationState"
      class="bg-opacity-10 bg-neutral-700 sticky top-0 z-50 shadow-lg border-b-2 border-opacity-15 border-white flex-row py-2 backdrop-blur-lg">
   <div class="flex flex-row justify-evenly h-14 mx-auto max-w-5xl p-4 lg:p-0">
-    <div class="flex-row flex justify-between items-center space-x-2 duration-150 hover:scale-110">
+    <div class="flex-row flex cursor-pointer justify-between items-center space-x-2 duration-150 hover:scale-110">
       <img src="/favicon.ico" class="size-8" alt="logo">
       <div class="text-white text-3xl">Miszcze</div>
     </div>
     <div class="flex flex-row justify-end items-center flex-1">
       <div class="sm:flex hidden flex-row justify-end pr-2 space-x-6">
-        <a class="text-white text-xl hover:underline duration-150 hover:scale-105 {{option.active ? 'underline' : ''}}"
+        <a class="text-white cursor-pointer text-xl hover:underline duration-150 hover:scale-105 {{option.active ? 'underline' : ''}}"
            (click)="changeContent(option.name)"
            *ngFor="let option of options">
           {{option.name}}
         </a>
       </div>
       <div class="flex flex-row pl-2 space-x-2 sm:border-l-2 border-opacity-15 border-white">
-        <i class="fa fa-github text-white fa-2x hover:scale-125 transition-all"></i>
-        <i class="fa fa-instagram text-white fa-2x hover:scale-125 transition-all"></i>
-        <i id="theme-icon" class="fa fa-moon-o text-white fa-2x hover:scale-125 transition-all" (click)="toggleTheme()"></i> <!-- Example: moon icon for dark mode -->
+        <i class="fa fa-github text-white fa-2x cursor-pointer hover:scale-125 transition-all"></i>
+        <i class="fa fa-instagram text-white fa-2x cursor-pointer hover:scale-125 transition-all"></i>
+        <i id="theme-icon" class="fa fa-moon-o text-white fa-2x cursor-pointer hover:scale-125 transition-all" (click)="toggleTheme()"></i> <!-- Example: moon icon for dark mode -->
       </div>
     </div>
   </div>
