@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, HostListener, Input} from '@angular/core';
+import {AfterViewInit, Component, Input} from '@angular/core';
 import {NgForOf} from '@angular/common';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 

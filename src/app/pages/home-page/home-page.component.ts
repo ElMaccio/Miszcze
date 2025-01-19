@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {HeaderComponent} from '../../components/header/header.component';
 import {HeroComponent} from '../../components/hero/hero.component';
 import {HorizontalScrollComponent} from '../../components/horizontal-scroll/horizontal-scroll.component';
@@ -7,6 +7,8 @@ import {ProjectCardComponent} from '../../components/project-card/project-card.c
 import {FooterComponent} from '../../components/footer/footer.component';
 import {OpinionCardComponent} from '../../components/opinion-card/opinion-card.component';
 import {Opinion} from '../../shared/interfaces/opinion';
+import {PreloaderComponent} from '../../components/preloader/preloader.component';
+import {gsap} from 'gsap';
 
 @Component({
   selector: 'app-home-page',
@@ -17,12 +19,15 @@ import {Opinion} from '../../shared/interfaces/opinion';
     NgForOf,
     ProjectCardComponent,
     FooterComponent,
-    OpinionCardComponent
+    OpinionCardComponent,
+    PreloaderComponent
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
-export class HomePageComponent {
+export class HomePageComponent implements AfterViewInit{
+  @ViewChild('preloaderComponent') preloaderComponent!: ElementRef;
+
   // Set id to specific elements to be able to scroll to them
   // After clicking on the navigation link
   // id should be like name to lower case plus 'Section' (e.g. portfolioSection)
@@ -81,4 +86,17 @@ export class HomePageComponent {
       stars: 1
     },
   ]
+
+  ngAfterViewInit() {
+    // Initialize GSAP timeline
+    // let tl = gsap.timeline();
+    //
+    // tl.to(this.preloaderComponent.nativeElement, {
+    //   y: '-100%',
+    //   duration: 1,
+    // }).to(this.preloaderComponent.nativeElement, {
+    //   y: '0%',
+    //   duration: 1,
+    // })
+  }
 }
