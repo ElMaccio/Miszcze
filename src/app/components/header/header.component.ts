@@ -1,6 +1,6 @@
-import {AfterViewInit, Component, Input} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {NgForOf} from '@angular/common';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import {gsap} from 'gsap';
 
 @Component({
   selector: 'app-header',
@@ -10,25 +10,10 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   standalone: true,
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
-  animations: [
-    trigger('fade', [
-      state('void', style({
-        opacity: 0,
-        transform: 'translateY(-100%)'
-      })),
-      state('visible', style({
-        opacity: 1,
-        transform: 'translateY(0)'
-      })),
-      transition("void => visible", [
-        animate(1500)
-      ])
-    ])
-  ]
 })
 export class HeaderComponent implements AfterViewInit {
   @Input() options!: { name: string, active: boolean, position?: number}[];
-  animationState = 'void';
+  @ViewChild('header') header!: ElementRef;
 
   themeIcon: HTMLElement | null = null;
 
@@ -48,7 +33,13 @@ export class HeaderComponent implements AfterViewInit {
       }
     }
 
-    this.animationState = 'visible';
+    gsap.from(this.header.nativeElement, {
+      y: '-100%',
+      opacity: 0,
+      duration: 1.5,
+      delay: 1.2
+    })
+
     this.observeSections();
   }
 

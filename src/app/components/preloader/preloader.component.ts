@@ -15,7 +15,7 @@ export class PreloaderComponent implements AfterViewInit {
     gsap.to(this.preloader.nativeElement, {
       y: '-100%',
       duration: 1.2,
-      delay: 0.3,
+      delay: 0.6,
       ease : 'power2.inOut',
       onStart: () => {
         gsap.to(this.logoSpin.nativeElement, {

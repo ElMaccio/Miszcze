@@ -1,13 +1,11 @@
-<div class="relative overflow-x-hidden h-80 lg:h-60 no-scrollbar my-16" #scroll>
-  <div class="flex h-full" #container>
-    <div class="shrink-0 w-1/12 lg:w-1/5">
-      <div class="shrink-0"></div>
-    </div>
+<div [ngClass]="'relative h-80 lg:h-60 no-scrollbar my-16 ' + (isMobile ? '' : 'overflow-x-hidden')" #scroll>
+  <div [ngClass]="'flex h-full ' + (isMobile ? 'hover:snap-proximity snap-mandatory snap-x overflow-x-auto no-scrollbar' : '')" #container>
+    <div *ngIf="!isMobile" class="shrink-0 w-1/12 lg:w-1/5"></div>
     <div class="relative w-full flex" #content>
+      <div *ngIf="isMobile" class="shrink-0 w-1/12 lg:w-1/5 snap-center"></div>
       <ng-content></ng-content>
+      <div *ngIf="isMobile" class="shrink-0 w-1/12 lg:w-1/5 snap-center"></div>
     </div>
-    <div class="shrink-0">
-      <div class="shrink-0 w-1/12 lg:w-1/5"></div>
-    </div>
+    <div *ngIf="!isMobile" class="shrink-0 w-1/12 lg:w-1/5"></div>
   </div>
 </div>

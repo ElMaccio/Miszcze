@@ -1,21 +1,46 @@
 import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {gsap} from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import {DeviceDetectorService} from 'ngx-device-detector';
+import {NgClass, NgIf} from '@angular/common';
 
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-horizontal-scroll',
-  imports: [],
+  imports: [
+    NgClass,
+    NgIf
+  ],
   templateUrl: './horizontal-scroll.component.html',
   styleUrl: './horizontal-scroll.component.css'
 })
 export class HorizontalScrollComponent implements AfterViewInit {
+  isMobile = false;
   @ViewChild('scroll') scroller!: ElementRef;
   @ViewChild('container') container!: ElementRef;
   @ViewChild('content') content!: ElementRef;
 
+  constructor(private deviceService: DeviceDetectorService) {
+    this.isMobile = this.deviceService.isMobile();
+  }
+
   ngAfterViewInit() {
+    if (!this.isMobile) {
+      this.initializeAnimations();
+    } else {
+      this.initializeSnap();
+    }
+  }
+
+  private initializeSnap() {
+    const childrenArray: HTMLElement[] = Array.from(this.content.nativeElement.children);
+    childrenArray.forEach((section: HTMLElement) => {
+      section.classList.add("snap-center");
+    });
+  }
+
+  private initializeAnimations() {
     let sections: ElementRef[] = Array.from(this.content.nativeElement.children);
     sections = gsap.utils.toArray(sections);
 
@@ -45,7 +70,6 @@ export class HorizontalScrollComponent implements AfterViewInit {
           ease: "power1.inOut"
         },
         end: () => {
-          console.log("+=" + (window.innerWidth * 3.5));
           return "+=" + (window.innerWidth * 3.5);
         }
       }
