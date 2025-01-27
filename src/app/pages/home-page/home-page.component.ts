@@ -52,39 +52,32 @@ export class HomePageComponent implements AfterViewInit{
   opinions: Opinion[] = [
     {
       logoSrc: '/favicon.ico',
-      clientName: 'Client 1',
-      opinion: 'Opinion of the client 1. Opinion of the client 1.',
-      date: '2021-01-01',
-      stars: 5
-    },
-    {
-      logoSrc: '/favicon.ico',
-      clientName: 'Client 2',
-      opinion: 'Opinion of the client 2. Opinion of the client 2.',
-      date: '2021-02-01',
-      stars: 4
-    },
-    {
-      logoSrc: '/favicon.ico',
-      clientName: 'Client 3',
-      opinion: 'Opinion of the client 3. Opinion of the client 3.',
-      date: '2021-03-01',
-      stars: 3
-    },
-    {
-      logoSrc: '/favicon.ico',
-      clientName: 'Client 4',
-      opinion: 'Opinion of the client 4. Opinion of the client 4.',
-      date: '2021-04-01',
-      stars: 2
-    },
-    {
-      logoSrc: '/favicon.ico',
-      clientName: 'Client 5',
-      opinion: 'Opinion of the client 5. Opinion of the client 5.',
+      clientName: 'C++',
+      opinion: 'Great for system-level programming, performance-critical applications, and algorithmic problem-solving.',
       date: '2021-05-01',
       stars: 1
     },
+    {
+      logoSrc: '/favicon.ico',
+      clientName: 'Python',
+      opinion: 'Ideal for machine learning, data analysis, automation, and backend development.',
+      date: '2021-05-01',
+      stars: 1
+    },
+    {
+      logoSrc: '/favicon.ico',
+      clientName: 'Web Development',
+      opinion: 'We specialize in full-stack web development, creating dynamic and responsive websites.',
+      date: '2021-05-01',
+      stars: 1
+    },
+    {
+      logoSrc: '/favicon.ico',
+      clientName: 'Graphics Programming',
+      opinion: 'Explored OpenGL and SDL2 for graphics projects and game engine development.',
+      date: '2021-05-01',
+      stars: 1
+    }
   ]
 
   ngAfterViewInit() {
