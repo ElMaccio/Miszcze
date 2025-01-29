@@ -3,12 +3,15 @@ import {HeaderComponent} from '../../components/header/header.component';
 import {HeroComponent} from '../../components/hero/hero.component';
 import {HorizontalScrollComponent} from '../../components/horizontal-scroll/horizontal-scroll.component';
 import {NgForOf} from '@angular/common';
-import {ProjectCardComponent} from '../../components/project-card/project-card.component';
+import {ProjectCardComponent} from '../../components/cards/project-card/project-card.component';
 import {FooterComponent} from '../../components/footer/footer.component';
-import {OpinionCardComponent} from '../../components/opinion-card/opinion-card.component';
-import {Opinion} from '../../shared/interfaces/opinion';
+import {OpinionCardComponent} from '../../components/cards/opinion-card/opinion-card.component';
+import {Opinion} from '../../shared/interfaces/cards/opinion';
 import {PreloaderComponent} from '../../components/preloader/preloader.component';
 import {gsap} from 'gsap';
+import {Project} from '../../shared/interfaces/cards/project';
+import {Skill} from '../../shared/interfaces/cards/skill';
+import {SkillCardComponent} from '../../components/cards/skill-card/skill-card.component';
 
 @Component({
   selector: 'app-home-page',
@@ -19,13 +22,13 @@ import {gsap} from 'gsap';
     NgForOf,
     ProjectCardComponent,
     FooterComponent,
-    OpinionCardComponent,
-    PreloaderComponent
+    PreloaderComponent,
+    SkillCardComponent
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css'
 })
-export class HomePageComponent implements AfterViewInit{
+export class HomePageComponent {
   @ViewChild('preloaderComponent') preloaderComponent!: ElementRef;
 
   // Set id to specific elements to be able to scroll to them
@@ -37,7 +40,7 @@ export class HomePageComponent implements AfterViewInit{
     {name: "Opinions", active: false},
   ];
 
-  projects: { name: string, description: string }[] = [
+  projects: Project[] = [
     {name: 'Projekt 1', description: 'Longer description of the project 1. Description of the project 1.'},
     {name: 'Projekt 2', description: 'Longer description of the project 2. Description of the project 2.'},
     {name: 'Projekt 3', description: 'Longer description of the project 3. Description of the project 3.'},
@@ -49,47 +52,30 @@ export class HomePageComponent implements AfterViewInit{
     {name: 'Projekt 9', description: 'Longer description of the project 9. Description of the project 9.'},
   ];
 
-  opinions: Opinion[] = [
+  skills: Skill[] = [
     {
       logoSrc: '/favicon.ico',
-      clientName: 'C++',
-      opinion: 'Great for system-level programming, performance-critical applications, and algorithmic problem-solving.',
-      date: '2021-05-01',
-      stars: 1
+      title: 'C++',
+      description: 'Great for system-level programming, performance-critical applications, and algorithmic problem-solving.',
+      date: '2021-05-01'
     },
     {
       logoSrc: '/favicon.ico',
-      clientName: 'Python',
-      opinion: 'Ideal for machine learning, data analysis, automation, and backend development.',
-      date: '2021-05-01',
-      stars: 1
+      title: 'Python',
+      description: 'Ideal for machine learning, data analysis, automation, and backend development.',
+      date: '2021-05-01'
     },
     {
       logoSrc: '/favicon.ico',
-      clientName: 'Web Development',
-      opinion: 'We specialize in full-stack web development, creating dynamic and responsive websites.',
-      date: '2021-05-01',
-      stars: 1
+      title: 'Web Development',
+      description: 'We specialize in full-stack web development, creating dynamic and responsive websites.',
+      date: '2021-05-01'
     },
     {
       logoSrc: '/favicon.ico',
-      clientName: 'Graphics Programming',
-      opinion: 'Explored OpenGL and SDL2 for graphics projects and game engine development.',
-      date: '2021-05-01',
-      stars: 1
+      title: 'Graphics Programming',
+      description: 'Explored OpenGL and SDL2 for graphics projects and game engine development.',
+      date: '2021-05-01'
     }
   ]
-
-  ngAfterViewInit() {
-    // Initialize GSAP timeline
-    // let tl = gsap.timeline();
-    //
-    // tl.to(this.preloaderComponent.nativeElement, {
-    //   y: '-100%',
-    //   duration: 1,
-    // }).to(this.preloaderComponent.nativeElement, {
-    //   y: '0%',
-    //   duration: 1,
-    // })
-  }
 }

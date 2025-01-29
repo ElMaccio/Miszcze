@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
-import {Opinion} from '../../shared/interfaces/opinion';
+import {Opinion} from '../../../shared/interfaces/cards/opinion';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 

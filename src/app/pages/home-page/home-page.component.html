@@ -29,7 +29,7 @@
         <p class="text-lg text-emerald-100 text-center mt-6">Together, we’re a problem-solving duo working hard to improve our skills and break into the tech industry. Whether it's diving into mechatronics, electrical engineering, or new programming fields, we’re ready to tackle challenges as a team. For now, we’re building this portfolio and preparing for even bigger projects ahead!</p>
       </div>
     </div>
-    
+
   </div>
 
   <div class="px-3 lg:px-0">
@@ -59,10 +59,10 @@
     </div>
   </div>
 
-  <app-opinion-card
-    *ngFor="let opinion of opinions"
-    [opinion]="opinion">
-  </app-opinion-card>
+  <app-skill-card
+    *ngFor="let skill of skills"
+    [skill]="skill">
+  </app-skill-card>
 
   <app-footer/>
 </div>

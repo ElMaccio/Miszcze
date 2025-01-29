@@ -1,0 +1,14 @@
+<div class="py-3 md:py-6 w-11/12 lg:w-2/3 mx-auto" #skillCard>
+  <div class="bg-neutral-800 bg-opacity-20 rounded-md shadow-lg backdrop-blur-sm p-4 relative text-white">
+    <div class="flex">
+      <img src="{{ skill.logoSrc }}" alt="Name Surname" class="rounded-full size-8">
+      <b class="ml-5 text-lg">{{ skill.title }}</b>
+    </div>
+    <div class="my-5">
+      <p>{{ skill.description }}</p>
+    </div>
+    <div class="absolute bottom-2 right-4">
+      <p>{{ skill.date ? "Date: " + skill.date : "" }}</p>
+    </div>
+  </div>
+</div>
